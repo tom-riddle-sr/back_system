@@ -8,7 +8,8 @@
                 <v-radio label="女" value="女" v-model="gender"></v-radio>
             </v-radio-group>
             <label for="birthday" class="mt-5">請輸入生日</label>
-            <input id="birthday" type="date" style="color: gray;" v-model="birthday"> <input type="number" style="color: gray;"
+            <input id="birthday" type="date" style="color: gray;" v-model="birthday"> 
+            <input type="number" style="color: gray; width: 100%;"
                 v-model="frequency" class="mt-5" placeholder="請輸入購買次數">
             <v-card-actions class="d-flex justify-center">
                 <v-btn color="success" variant="outlined" class="mx-4" size="small">

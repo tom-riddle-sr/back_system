@@ -1,27 +1,25 @@
 <template>
-    <v-card>
-      <v-layout>
-        <v-navigation-drawer
-          permanent
-      
-        >
-          <template v-slot:prepend>
-            <v-list-item
-              lines="two"
-              prepend-avatar="https://randomuser.me/api/portraits/women/81.jpg"
-              title="Jane Smith"
-              subtitle="Logged in"
-            ></v-list-item>
-          </template>
-  
-          <v-divider></v-divider>
-  
-          <v-list density="compact" nav>
-            <v-list-item prepend-icon="mdi-home-city" title="Home" value="home"></v-list-item>
-            <v-list-item prepend-icon="mdi-account" title="My Account" value="account"></v-list-item>
-            <v-list-item prepend-icon="mdi-account-group-outline" title="Users" value="users"></v-list-item>
-          </v-list>
-        </v-navigation-drawer>
-      </v-layout>
-    </v-card>
-  </template>
+  <v-text-field
+    v-model="text"
+    :rules="requiredRule"
+    label="Text"
+    required
+  ></v-text-field>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      text: ''
+    };
+  },
+  computed: {
+    requiredRule() {
+      return [
+        (v) => !!v || '必填項' 
+      ];
+    }
+  }
+};
+</script>

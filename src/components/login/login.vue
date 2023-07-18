@@ -108,7 +108,7 @@ export default {
 
         register_function() {
             this.$router.push('/register');
-
+   
         },
         close_block() {
             this.dialog = false

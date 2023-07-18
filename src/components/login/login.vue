@@ -61,11 +61,12 @@ export default {
     methods: {
         check_identity() {
             this.dialog = true
-            var stored_data = JSON.parse(localStorage.getItem('arr')) || [];
+            var stored_data = JSON.parse(localStorage.getItem('user_data_arr')) || [];
             console.log(stored_data)
             stored_data.map(item => {
                 if (item.account === this.account && item.password === this.password) {
-
+                    var identity = stored_data.find(item => item.account === this.account);
+                    localStorage.setItem('identity', JSON.stringify(identity));
                     this.dialog_text = "登入成功"
                     this.button_switch1 = true
                     this.button_switch2 = false
@@ -75,12 +76,6 @@ export default {
                     this.button_switch1 = false
                 }
             });
-            // if (storedData) {
-            //     var data = JSON.parse(storedData);
-            //     this.aa = data.name
-            //     this.$router.push('/');
-
-            // }
         },
 
         register_function() {

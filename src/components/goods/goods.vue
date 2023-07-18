@@ -1,13 +1,13 @@
 <template>
-    <v-col class="d-flex flex-column  justify-center align-center goods_container" cols="8">
-        <v-container >
+    <v-col class="d-flex justify-center " cols="9">
+        <v-container>
             <v-row>
-                <v-col class=" d-flex justify-end me-2">
+                <v-col class=" d-flex justify-end me-12">
                     <v-btn prepend-icon="mdi-plus-circle" variant="outlined" class="bg-primary">新增訂單</v-btn>
                 </v-col>
             </v-row>
-            <v-row class=" d-flex flex-column justify-center mx-5">
-                <add_goods/>
+            <v-row class=" d-flex flex-column justify-center me-13">
+                <!-- <add_goods/> -->
                 <v-row class="mt-5">
                     <v-col class=" border d-flex align-center justify-center bg-primary" style="padding: 0;"
                         cols="2">品名</v-col>
@@ -43,31 +43,31 @@ import add_goods from "./add_goods.vue";
 export default {
     data: () => ({
         items: [{
-            id: 1,
+            goods_id: 1,
             name: "Apple",
             price: 20000,
             date: "06/19/2023",
             buyer: "周曉琪"
         }, {
-            id: 2,
+            goods_id: 2,
             name: "SamSung",
             price: 18463,
             date: "07/19/2023",
             buyer: "嚴程宇"
         }, {
-            id: 3,
+            goods_id: 3,
             name: "Oppo",
             price: 13029,
             date: "10/01/2023",
             buyer: "周曉琪"
         }, {
-            id: 4,
+            goods_id: 4,
             name: "Sony",
             price: 26000,
             date: "11/21/2023",
             buyer: "嚴程宇"
         }, {
-            id: 5,
+            goods_id: 5,
             name: "Pixel",
             price: 13000,
             date: "11/22/2023",
@@ -82,6 +82,11 @@ export default {
 <style>
 .goods_container{
     position: relative;
+}
+
+.co{
+    background-color: aqua;
+
 }
 
 </style>

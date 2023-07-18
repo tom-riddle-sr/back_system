@@ -1,9 +1,6 @@
 <template>
   <div>
     <router-view></router-view>
-    <!-- <login /> -->
-    <!-- <front_page1 /> -->
-    <!-- <test /> -->
     
   </div>
 </template>

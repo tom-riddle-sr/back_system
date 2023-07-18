@@ -1,13 +1,13 @@
 <template>
-    <v-col class="member_container d-flex flex-column  justify-center align-center" cols="8">
+    <v-col class="member_container d-flex flex-column  align-center" cols="9">
         <v-container>
             <v-row>
-                <v-col class=" d-flex justify-end me-2">
+                <v-col class=" d-flex justify-end me-15">
                     <v-btn prepend-icon="mdi-plus-circle" variant="outlined" class="bg-primary">新增會員</v-btn>
                 </v-col>
             </v-row>
-            <v-row class=" d-flex flex-column justify-center mx-5">
-                <add_member/>
+            <v-row class=" d-flex flex-column  mx-5 me-15">
+                <!-- <add_member/> -->
                 <v-row class="mt-5">
                     <v-col class=" border d-flex align-center justify-center bg-primary" style="padding: 0;"
                         cols="2">名稱</v-col>
@@ -45,31 +45,31 @@ import add_member from "./add_member.vue"
 export default {
     data: () => ({
         items: [{
-            id: 1,
+            member_id: 1,
             name: "周曉琪",
             gender: "女",
             birthday: "06/19/1935",
             frequency: "2"
         }, {
-            id: 2,
+            member_id: 2,
             name: "陳祥彥",
             gender: "男",
             birthday: "07/19/1964",
             frequency: "0"
         }, {
-            id: 3,
+            member_id: 3,
             name: "吳淑芬",
             gender: "女",
             birthday: "10/01/1987",
             frequency: "0"
         }, {
-            id: 4,
+            member_id: 4,
             name: "嚴程宇",
             gender: "男",
             birthday: "11/21/2002",
             frequency: "2"
         }, {
-            id: 5,
+            member_id: 5,
             name: "丁衝",
             gender: "男",
             birthday: "11/22/1993",

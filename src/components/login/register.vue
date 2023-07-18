@@ -3,13 +3,13 @@
 
         <v-card class="mx-auto px-5" max-width="344" title="註冊">
 
-            <v-text-field v-model="name" color="primary" label="名字" placeholder="Enter your name" variant="underlined"
-                :rules="requiredRule"></v-text-field>
+            <v-text-field v-model="user_data.name" color="primary" label="名字" placeholder="Enter your name"
+                variant="underlined" :rules="requiredRule"></v-text-field>
 
-            <v-text-field v-model="account" color="primary" label="帳號" placeholder="Enter your account" variant="underlined"
-                :rules="requiredRule"></v-text-field>
+            <v-text-field v-model="user_data.account" color="primary" label="帳號" placeholder="Enter your account"
+                variant="underlined" :rules="requiredRule"></v-text-field>
 
-            <v-text-field v-model="password" color="primary" label="密碼" placeholder="Enter your password"
+            <v-text-field v-model="user_data.password" color="primary" label="密碼" placeholder="Enter your password"
                 variant="underlined" :rules="requiredRule"></v-text-field>
 
             <v-card-actions class="d-flex justify-center">
@@ -42,27 +42,25 @@
 <script>
 export default {
     data: () => ({
-        name: null,
-        account: null,
-        password: null,
         dialog: false,
         dialog_text: "",
         button_switch1: false,
         button_switch2: false,
 
+        user_data: {
+            user_id: null,
+            name: null,
+            account: null,
+            password: null,
+        }
 
 
     }),
     methods: {
         store_data() {
-            var data = {
-                name: this.name,
-                account: this.account,
-                password: this.password
-            };
 
-            var arr = JSON.parse(localStorage.getItem('arr')) || [];
-            if (data.name == null && data.account == null && data.password == null) {
+            var user_data_arr = JSON.parse(localStorage.getItem('user_data_arr')) || [];
+            if (this.user_data.name == null && this.user_data.account == null && this.user_data.password == null) {
                 this.dialog_text = "請輸入所有問題"
                 this.button_switch1 = true
                 this.button_switch2 = false
@@ -71,12 +69,39 @@ export default {
                 this.button_switch2 = true
                 this.button_switch1 = false
 
-                arr.push(data);
-                localStorage.setItem('arr', JSON.stringify(arr));
+                var id = user_data_arr.length + 1
+                this.user_data.user_id = id
+
+                user_data_arr.push(this.user_data);
+                localStorage.setItem('user_data_arr', JSON.stringify(user_data_arr));
+
+                var goods_data_arr = JSON.parse(localStorage.getItem('goods_data_arr')) || {};
+                var goods_data = {
+                    user_id: id,
+                    goods_list: {
+                        goods_id: null,
+                        name: null,
+                        price: null,
+                        date: null,
+                        buyer: null
+                    }
+                }
+                localStorage.setItem('goods_data_arr', JSON.stringify(goods_data_arr));
+
+                var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || [];
+                var member_data = {
+                    user_id: id,
+                    member_list: {
+                        member_id: null,
+                        name: null,
+                        gender: null,
+                        birthday: null,
+                        frequency: null
+                    }
+                }
+                localStorage.setItem('member_data_arr', JSON.stringify(member_data_arr));
 
             }
-
-
         },
         close_block() {
             this.dialog = false

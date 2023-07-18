@@ -53,7 +53,7 @@ export default {
         member: false,
         currentComponent: form1
     }),
-    components: {
+    components: { 
         form1: rawForm1,
         goods,
         member

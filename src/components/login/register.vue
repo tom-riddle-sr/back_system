@@ -75,29 +75,16 @@ export default {
                 user_data_arr.push(this.user_data);
                 localStorage.setItem('user_data_arr', JSON.stringify(user_data_arr));
 
-                var goods_data_arr = JSON.parse(localStorage.getItem('goods_data_arr')) || {};
-                var goods_data = {
+                var goods_data_arr = {
                     user_id: id,
-                    goods_list: {
-                        goods_id: null,
-                        name: null,
-                        price: null,
-                        date: null,
-                        buyer: null
-                    }
+                    goods_list: []
                 }
                 localStorage.setItem('goods_data_arr', JSON.stringify(goods_data_arr));
 
-                var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || [];
-                var member_data = {
+
+                var member_data_arr = {
                     user_id: id,
-                    member_list: {
-                        member_id: null,
-                        name: null,
-                        gender: null,
-                        birthday: null,
-                        frequency: null
-                    }
+                    member_list: []
                 }
                 localStorage.setItem('member_data_arr', JSON.stringify(member_data_arr));
 

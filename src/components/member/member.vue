@@ -1,13 +1,13 @@
 <template>
-    <v-col class="member_container d-flex flex-column  align-center" cols="9">
+    <v-col class="member_container d-flex flex-column   align-center" cols="9">
         <v-container>
             <v-row>
                 <v-col class=" d-flex justify-end me-15">
-                    <v-btn prepend-icon="mdi-plus-circle" variant="outlined" class="bg-primary">新增會員</v-btn>
+                    <v-btn prepend-icon="mdi-plus-circle" variant="outlined" class="bg-primary" @click="open_add_member">新增會員</v-btn>
                 </v-col>
             </v-row>
-            <v-row class=" d-flex flex-column  mx-5 me-15">
-                <!-- <add_member/> -->
+            <v-row class=" d-flex flex-column justify-center mx-5 me-15">
+                <component :is="add_member_switch" @close="close_add_member" @item_update="item_update"></component>
                 <v-row class="mt-5">
                     <v-col class=" border d-flex align-center justify-center bg-primary" style="padding: 0;"
                         cols="2">名稱</v-col>
@@ -43,6 +43,13 @@
 <script>
 import add_member from "./add_member.vue"
 export default {
+    created() {
+        var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || {
+            member_list: []
+        }
+
+        this.items = member_data_arr.member_list.reverse()
+    },
     data: () => ({
         items: [{
             member_id: 1,
@@ -74,10 +81,26 @@ export default {
             gender: "男",
             birthday: "11/22/1993",
             frequency: "1"
-        }]
+        }],
+        add_member_switch:null
     }),
     components:{
         add_member
+    },
+    methods:{
+        open_add_member(){
+            this.add_member_switch = add_member
+        },
+        close_add_member() {
+            this.add_member_switch = null
+
+        },
+        item_update() {
+            var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || {
+                member_list: []
+            }
+            this.items = member_data_arr.member_list.reverse()
+        }
     }
 }
 </script>

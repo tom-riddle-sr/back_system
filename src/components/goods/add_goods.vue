@@ -10,10 +10,10 @@
             <v-text-field v-model="buyer" color="primary" label="購買者" placeholder="Enter buyer"
                 variant="underlined"></v-text-field>
             <v-card-actions class="d-flex justify-center">
-                <v-btn color="success" variant="outlined" class="mx-4" size="small">
+                <v-btn color="success" variant="outlined" class="mx-4" size="small" @click="add_goods">
                     確認
                 </v-btn>
-                <v-btn color="success" variant="outlined" class="mx-4" size="small">
+                <v-btn color="success" variant="outlined" class="mx-4" size="small" @click="close_add_goods">
                     取消
                 </v-btn>
             </v-card-actions>
@@ -28,6 +28,32 @@ export default {
         date: null,
         buyer: null
     }),
+    methods: {
+        add_goods() {
+            var goods_data_arr = JSON.parse(localStorage.getItem('goods_data_arr')) || {
+                goods_list: []
+            };
+
+            var add_goods_list = {
+                goods_id: goods_data_arr.goods_list.length + 1,
+                name: this.goods,
+                price: this.price,
+                date: this.date,
+                buyer: this.buyer
+            };
+
+            goods_data_arr.goods_list.push(add_goods_list);
+            localStorage.setItem('goods_data_arr', JSON.stringify(goods_data_arr));
+            console.log(goods_data_arr);
+            this.$emit('close');
+            this.$emit('item_update');
+
+        },
+
+        close_add_goods() {
+            this.$emit('close');
+        }
+    }
 }
 </script>
 <style>
@@ -35,7 +61,7 @@ export default {
     position: absolute;
     z-index: 2;
     width: 100%;
-    left: 21%;
-    top: 10%;
+    left: 16%;
+    top: 8%;
 }
 </style>

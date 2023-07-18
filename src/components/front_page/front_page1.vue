@@ -13,11 +13,11 @@
 
                         <v-list density="compact" nav>
                             <v-list-item prepend-icon="mdi-home" title="首頁" value="form1"
-                                @click="form1_switch"></v-list-item>
+                                @click="switch_form1"></v-list-item>
                             <v-list-item prepend-icon="mdi-cart" title="訂單資訊" value="goods"
-                                @click="goods_switch"></v-list-item>
+                                @click="switch_goods"></v-list-item>
                             <v-list-item prepend-icon="mdi-account" title="會員資訊" value="member"
-                                @click="member_switch"></v-list-item>
+                                @click="switch_member"></v-list-item>
                         </v-list>
                     </v-navigation-drawer>
                 </v-layout>
@@ -25,7 +25,8 @@
 
 
         </v-col>
-        <component :is="currentComponent" class="full-height" />
+
+        <component :is="current_component"></component>
 
 
 
@@ -42,33 +43,27 @@ var rawForm1 = markRaw(form1);
 
 export default {
     created() {
-        var identity = JSON.parse(localStorage.getItem('identity')) || [];
-        this.title = identity.name
-
+        var user_data = JSON.parse(localStorage.getItem('identity')) || [];
+        this.title = user_data.name
     },
     data: () => ({
         title: null,
-        form1: true,
-        goods: false,
-        member: false,
-        currentComponent: form1
+        current_component: form1
     }),
-    components: { 
-        form1: rawForm1,
+    components: {
+        form1,
         goods,
         member
     },
     methods: {
-        form1_switch() {
-            this.currentComponent = form1
+        switch_form1() {
+            this.current_component = form1
         },
-        goods_switch() {
-            this.currentComponent = goods
-
+        switch_member() {
+            this.current_component = member
         },
-        member_switch() {
-            this.currentComponent = member
-
+        switch_goods() {
+            this.current_component = goods
         }
     }
 }

@@ -46,7 +46,32 @@ export default {
 
             member_data_arr.member_list.push(add_member_list);
             localStorage.setItem('member_data_arr', JSON.stringify(member_data_arr));
-            console.log(member_data_arr);
+            this.$emit('close');
+            this.$emit('item_update');
+
+        },
+
+        close_add_member() {
+            this.$emit('close');
+        }
+    },
+    methods: {
+        add_member() {
+            var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || {
+                member_list: []
+            };
+
+            var add_member_list = {
+                member_id: member_data_arr.member_list.length + 1,
+                name: this.name,
+                gender: this.gender,
+                birthday: this.birthday,
+                frequency: this.frequency,
+                editing:false
+            };
+
+            member_data_arr.member_list.push(add_member_list);
+            localStorage.setItem('member_data_arr', JSON.stringify(member_data_arr));
             this.$emit('close');
             this.$emit('item_update');
 

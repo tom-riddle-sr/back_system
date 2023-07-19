@@ -39,12 +39,12 @@ export default {
                 name: this.goods,
                 price: this.price,
                 date: this.date,
-                buyer: this.buyer
+                buyer: this.buyer,
+                editing:false
             };
 
             goods_data_arr.goods_list.push(add_goods_list);
             localStorage.setItem('goods_data_arr', JSON.stringify(goods_data_arr));
-            console.log(goods_data_arr);
             this.$emit('close');
             this.$emit('item_update');
 

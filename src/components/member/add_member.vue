@@ -40,7 +40,8 @@ export default {
                 name: this.name,
                 gender: this.gender,
                 birthday: this.birthday,
-                frequency: this.frequency
+                frequency: this.frequency,
+                editing:false
             };
 
             member_data_arr.member_list.push(add_member_list);

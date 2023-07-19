@@ -54,7 +54,7 @@ export default {
         close_add_member() {
             this.$emit('close');
         }
-    }
+    },
     methods: {
         add_member() {
             var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || {
@@ -72,7 +72,6 @@ export default {
 
             member_data_arr.member_list.push(add_member_list);
             localStorage.setItem('member_data_arr', JSON.stringify(member_data_arr));
-            console.log(member_data_arr);
             this.$emit('close');
             this.$emit('item_update');
 

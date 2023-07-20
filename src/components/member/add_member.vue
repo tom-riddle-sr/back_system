@@ -17,7 +17,7 @@
                 <v-btn color="success" variant="outlined" class="mx-4" size="small" @click="close_add_member">
                     取消
                 </v-btn>
-            </v-card-actions> 
+            </v-card-actions>
         </v-card>
     </div>
 </template>
@@ -37,15 +37,14 @@ export default {
             var founded_member_data_index = member_data_arr.findIndex(item => item.user_id === identity.user_id);
 
             var add_member_list = {
-                goods_id: founded_member_data_arr.member_list.length + 1,
+                member_id: founded_member_data_arr.member_list.length + 1,
                 name: this.name,
                 gender: this.gender,
                 birthday: this.birthday,
                 frequency: this.frequency,
                 editing: false
             };
-
-            member_data_arr[founded_member_data_index - 1].member_list.push(add_member_list)
+            member_data_arr[founded_member_data_index].member_list.push(add_member_list)
             console.log(member_data_arr)
             localStorage.setItem('member_data_arr', JSON.stringify(member_data_arr));
 
@@ -53,6 +52,7 @@ export default {
             this.$emit('item_update');
 
         },
+
         close_add_member() {
             this.$emit('close');
         }

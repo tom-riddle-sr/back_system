@@ -1,9 +1,12 @@
 <template>
   <div>
     <router-view></router-view>
+<<<<<<< Updated upstream
     <!-- <login /> -->
     <!-- <front_page1 /> -->
     <!-- <test /> -->
+=======
+>>>>>>> Stashed changes
   </div>
 </template>
 <script>

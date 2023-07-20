@@ -72,10 +72,10 @@ export default {
                     localStorage.setItem('identity', JSON.stringify(identity));
 
                     this.dialog_text = "登入成功";
-                    this.button_switch1 = true;
+                    this.button_switch1 = true; 
                     this.button_switch2 = false;
                     found = true;
-                    return true;
+                    return true; 
                 }
             });
             if (!found) {

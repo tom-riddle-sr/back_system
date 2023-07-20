@@ -76,7 +76,7 @@ export default {
                 this.button_switch1 = true
                 this.button_switch2 = false
             } else {
-                this.dialog_text = "註冊完成"
+                this.dialog_text = "註冊完成" 
                 this.button_switch2 = true
                 this.button_switch1 = false
 

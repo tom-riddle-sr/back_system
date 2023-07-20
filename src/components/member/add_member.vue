@@ -17,7 +17,7 @@
                 <v-btn color="success" variant="outlined" class="mx-4" size="small" @click="close_add_member">
                     取消
                 </v-btn>
-            </v-card-actions>
+            </v-card-actions> 
         </v-card>
     </div>
 </template>

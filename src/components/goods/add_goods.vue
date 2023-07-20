@@ -36,7 +36,7 @@ export default {
             var founded_goods_data_arr = goods_data_arr.find(item => item.user_id === identity.user_id)
             var founded_goods_data_index = goods_data_arr.findIndex(item => item.user_id === identity.user_id);
 
-            var add_goods_list = {
+            var add_goods_list = {  
                 goods_id: founded_goods_data_arr.goods_list.length + 1,
                 name: this.goods,
                 price: this.price,

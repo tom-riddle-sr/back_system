@@ -22,6 +22,7 @@
 </template>
 <script>
 export default {
+
     data: () => ({
         goods: null,
         price: null,
@@ -30,21 +31,23 @@ export default {
     }),
     methods: {
         add_goods() {
-            var goods_data_arr = JSON.parse(localStorage.getItem('goods_data_arr')) || {
-                goods_list: []
-            };
+            var goods_data_arr = JSON.parse(localStorage.getItem('goods_data_arr')) || []
+            var identity = JSON.parse(localStorage.getItem('identity')) || []
+            var founded_goods_data_arr = goods_data_arr.find(item => item.user_id === identity.user_id)
+            var founded_goods_data_index = goods_data_arr.findIndex(item => item.user_id === identity.user_id);
 
-            var add_goods_list = {
-                goods_id: goods_data_arr.goods_list.length + 1,
+            var add_goods_list = {  
+                goods_id: founded_goods_data_arr.goods_list.length + 1,
                 name: this.goods,
                 price: this.price,
                 date: this.date,
                 buyer: this.buyer,
-                editing:false
+                editing: false
             };
-
-            goods_data_arr.goods_list.push(add_goods_list);
+            goods_data_arr[founded_goods_data_index-1].goods_list.push(add_goods_list)
+            console.log(goods_data_arr)        
             localStorage.setItem('goods_data_arr', JSON.stringify(goods_data_arr));
+
             this.$emit('close');
             this.$emit('item_update');
 
@@ -52,6 +55,7 @@ export default {
 
         close_add_goods() {
             this.$emit('close');
+
         }
     }
 }

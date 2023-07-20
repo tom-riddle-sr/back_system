@@ -44,7 +44,7 @@ export default {
                 buyer: this.buyer,
                 editing: false
             };
-            goods_data_arr[founded_goods_data_index-1].goods_list.push(add_goods_list)
+            goods_data_arr[founded_goods_data_index].goods_list.push(add_goods_list)
             console.log(goods_data_arr)        
             localStorage.setItem('goods_data_arr', JSON.stringify(goods_data_arr));
 

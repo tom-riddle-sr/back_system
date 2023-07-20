@@ -7,7 +7,7 @@
                         <template v-slot:prepend>
                             <v-list-item lines="two" prepend-avatar="https://randomuser.me/api/portraits/women/81.jpg">
                                 <div>{{ title }}
-                                    <button @click="logout"  class="bg-primary px-2 ms-3">登出</button>
+                                    <button @click="logout" class="bg-primary px-2 ms-3">登出</button>
                                 </div>
                             </v-list-item>
                         </template>
@@ -29,8 +29,8 @@
 
         </v-col>
 
-        <!-- <component :is="current_component"></component> -->
-        <member/>
+        <component :is="current_component"></component>
+    
 
 
 
@@ -50,7 +50,7 @@ export default {
         var identity = JSON.parse(localStorage.getItem('identity')) || [];
         var goods_data_arr = JSON.parse(localStorage.getItem('goods_data_arr')) || []
         var user_data_arr = JSON.parse(localStorage.getItem('user_data_arr')) || []
-
+        this.title = identity.name
     },
     data: () => ({
         title: null,
@@ -71,7 +71,7 @@ export default {
         switch_goods() {
             this.current_component = goods
         },
-        logout(){
+        logout() {
             this.$router.push('./')
 
         }

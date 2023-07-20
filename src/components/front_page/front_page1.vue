@@ -30,7 +30,7 @@
         </v-col>
 
         <!-- <component :is="current_component"></component> -->
-        <form1/>
+        <member/>
 
 
 
@@ -47,9 +47,10 @@ var rawForm1 = markRaw(form1);
 
 export default {
     created() {
-        var user_data = JSON.parse(localStorage.getItem('identity')) || [];
+        var identity = JSON.parse(localStorage.getItem('identity')) || [];
         var goods_data_arr = JSON.parse(localStorage.getItem('goods_data_arr')) || []
-        this.title = user_data.name
+        var user_data_arr = JSON.parse(localStorage.getItem('user_data_arr')) || []
+
     },
     data: () => ({
         title: null,
@@ -82,3 +83,4 @@ export default {
     height: 100vh;
 }
 </style>
+

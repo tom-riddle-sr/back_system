@@ -67,13 +67,13 @@
 <script>
 import add_member from "./add_member.vue"
 export default {
-    created() {
-        var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || {
-            member_list: []
-        }
+    // created() {
+    //     var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || {
+    //         member_list: []
+    //     }
 
-        this.items = member_data_arr.member_list.reverse()
-    },
+    //     this.items = member_data_arr.member_list.reverse()
+    // },
     data: () => ({
         items: null,
         add_member_switch: null,
@@ -99,7 +99,8 @@ export default {
                 member_list: []
             }
             this.items = member_data_arr.member_list.reverse()
-        }, member_edit(event) {
+        },
+         member_edit(event) {
             var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || {
                 member_list: []
             }

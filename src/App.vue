@@ -4,7 +4,6 @@
     <!-- <login /> -->
     <!-- <front_page1 /> -->
     <!-- <test /> -->
-    
   </div>
 </template>
 <script>
@@ -16,7 +15,7 @@ export default {
   components: {
     login, 
     front_page1,
-    test
+    test,
   }
 }
 </script>

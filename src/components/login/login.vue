@@ -59,30 +59,14 @@ export default {
         register
     },
     methods: {
-        // check_identity() {
-        //     this.dialog = true
-        //     var stored_data = JSON.parse(localStorage.getItem('user_data_arr')) || [];
-        //     stored_data.map(item => {
-        //         if (item.account === this.account && item.password === this.password) {
-        //             var identity = stored_data.find(item => item.account === this.account);
-        //             localStorage.setItem('identity', JSON.stringify(identity));
-        //             this.dialog_text = "登入成功"
-        //             this.button_switch1 = true
-        //             this.button_switch2 = false
-        //         } else {
-        //             this.dialog_text = "輸入錯誤，請重試"
-        //             this.button_switch2 = true
-        //             this.button_switch1 = false
-        //         }
-        //     });
-        // },
-
         check_identity() {
             this.dialog = true
             var stored_data = JSON.parse(localStorage.getItem('user_data_arr')) || [];
             var a = JSON.parse(localStorage.getItem('goods_data_arr')) || [];
             var b = JSON.parse(localStorage.getItem('member_data_arr')) || [];
-     
+            console.log(stored_data)
+            console.log(a)
+            console.log(b)
 
             var found = false;
             stored_data.some(item => {

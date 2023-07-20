@@ -5,8 +5,11 @@
                 <v-layout>
                     <v-navigation-drawer permanent>
                         <template v-slot:prepend>
-                            <v-list-item lines="two" prepend-avatar="https://randomuser.me/api/portraits/women/81.jpg"
-                                :title="title" ></v-list-item>
+                            <v-list-item lines="two" prepend-avatar="https://randomuser.me/api/portraits/women/81.jpg">
+                                <div>{{ title }}
+                                    <button @click="logout"  class="bg-primary px-2 ms-3">登出</button>
+                                </div>
+                            </v-list-item>
                         </template>
 
                         <v-divider></v-divider>
@@ -26,7 +29,8 @@
 
         </v-col>
 
-        <component :is="current_component"></component>
+        <!-- <component :is="current_component"></component> -->
+        <form1/>
 
 
 
@@ -44,6 +48,7 @@ var rawForm1 = markRaw(form1);
 export default {
     created() {
         var user_data = JSON.parse(localStorage.getItem('identity')) || [];
+        var goods_data_arr = JSON.parse(localStorage.getItem('goods_data_arr')) || []
         this.title = user_data.name
     },
     data: () => ({
@@ -64,6 +69,10 @@ export default {
         },
         switch_goods() {
             this.current_component = goods
+        },
+        logout(){
+            this.$router.push('./')
+
         }
     }
 }

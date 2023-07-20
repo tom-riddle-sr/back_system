@@ -41,12 +41,15 @@
 </template>
 <script>
 export default {
-    created(){
+    created() {
         var goods_data_arr = JSON.parse(localStorage.getItem('goods_data_arr')) || [];
+        var user_data_arr = JSON.parse(localStorage.getItem('user_data_arr')) || [];
         localStorage.setItem('goods_data_arr', JSON.stringify(goods_data_arr));
         var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || [];
         localStorage.setItem('member_data_arr', JSON.stringify(member_data_arr));
-
+        console.log(user_data_arr)
+        console.log(goods_data_arr)
+        console.log(member_data_arr)
 
     },
     data: () => ({
@@ -73,7 +76,7 @@ export default {
                 this.button_switch1 = true
                 this.button_switch2 = false
             } else {
-                this.dialog_text = "註冊完成"
+                this.dialog_text = "註冊完成" 
                 this.button_switch2 = true
                 this.button_switch1 = false
 

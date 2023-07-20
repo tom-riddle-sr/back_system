@@ -41,6 +41,14 @@
 </template>
 <script>
 export default {
+    created(){
+        var goods_data_arr = JSON.parse(localStorage.getItem('goods_data_arr')) || [];
+        localStorage.setItem('goods_data_arr', JSON.stringify(goods_data_arr));
+        var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || [];
+        localStorage.setItem('member_data_arr', JSON.stringify(member_data_arr));
+
+
+    },
     data: () => ({
         dialog: false,
         dialog_text: "",
@@ -75,17 +83,20 @@ export default {
                 user_data_arr.push(this.user_data);
                 localStorage.setItem('user_data_arr', JSON.stringify(user_data_arr));
 
-                var goods_data_arr = {
+                var goods_data_arr = JSON.parse(localStorage.getItem('goods_data_arr')) || [];
+                var sub_goods_data_arr = {
                     user_id: id,
                     goods_list: []
                 }
+                goods_data_arr.push(sub_goods_data_arr)
                 localStorage.setItem('goods_data_arr', JSON.stringify(goods_data_arr));
 
-
-                var member_data_arr = {
+                var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || [];
+                var sub_member_data_arr = {
                     user_id: id,
                     member_list: []
                 }
+                member_data_arr.push(sub_member_data_arr)
                 localStorage.setItem('member_data_arr', JSON.stringify(member_data_arr));
 
             }

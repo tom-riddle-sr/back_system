@@ -1,7 +1,10 @@
 <template>
   <div>
     <router-view></router-view>
+<<<<<<< Updated upstream
     
+=======
+>>>>>>> Stashed changes
   </div>
 </template>
 <script>
@@ -13,7 +16,7 @@ export default {
   components: {
     login, 
     front_page1,
-    test
+    test,
   }
 }
 </script>

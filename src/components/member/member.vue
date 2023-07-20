@@ -84,69 +84,6 @@ export default {
     }),
     components: {
         add_member
-    },
-    
-    methods: {
-        open_add_member() {
-            this.add_member_switch = add_member
-        },
-        close_add_member() {
-            this.add_member_switch = null
-
-        },
-        item_update() {
-            var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || {
-                member_list: []
-            }
-            this.items = member_data_arr.member_list.reverse()
-        }, member_edit(event) {
-            var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || {
-                member_list: []
-            }
-            console.log(event.target.id)
-            member_data_arr.member_list[event.target.id - 1].editing = !member_data_arr.member_list[event.target.id - 1].editing;
-            localStorage.setItem('member_data_arr', JSON.stringify(member_data_arr));
-            this.items = member_data_arr.member_list.reverse()
-
-        },
-        member_edit_finish(member_id, name, gender, birthday, frequency) {
-            var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || {
-                member_list: []
-            }
-            this.edit_name != null ? member_data_arr.member_list[member_id - 1].name = this.edit_name : name
-            this.edit_gender != null ? member_data_arr.member_list[member_id - 1].gender = this.edit_gender : gender
-            this.edit_birthday != null ? member_data_arr.member_list[member_id - 1].birthday = this.edit_birthday : birthday
-            this.edit_frequency != null ? member_data_arr.member_list[member_id - 1].frequency = this.edit_frequency : frequency
-
-            member_data_arr.member_list[member_id - 1].editing = !member_data_arr.member_list[member_id - 1].editing;
-
-            localStorage.setItem('member_data_arr', JSON.stringify(member_data_arr));
-            var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || {
-                member_list: []
-            }
-            this.items = member_data_arr.member_list.reverse()
-            this.edit_name = null
-            this.edit_gender = null
-            this.edit_birthday = null
-            this.edit_frequency = null
-        },
-        delete_member(event) {
-            var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || {
-                member_list: []
-            }
-            member_data_arr.member_list.splice(event.target.id - 1, 1);
-            localStorage.setItem('member_data_arr', JSON.stringify(member_data_arr));
-            this.items = member_data_arr.member_list.reverse()
-        },
-        cancel_edit_mode(member_id) {
-            var member_data_arr = JSON.parse(localStorage.getItem('member_data_arr')) || {
-                member_list: []
-            }
-            member_data_arr.member_list[member_id - 1].editing = !member_data_arr.member_list[member_id - 1].editing;
-            localStorage.setItem('member_data_arr', JSON.stringify(member_data_arr));
-            this.items = member_data_arr.member_list.reverse()
-        }
-
     }
 }
 </script>

@@ -11,3 +11,5 @@
 會員資訊顯示會員詳情
 上2項皆有新增、刪除、修改功能
 
+Netify:
+https://sensational-bublanina-9e4e7b.netlify.app/
